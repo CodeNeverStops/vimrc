@@ -37,6 +37,7 @@
 - alt+l 向右移动光标
 - mac 下用command + h/j/k/l
 
+###### 所有模式
 - ;g vimgrep的缩写
 - ;n 定位到vimgrep搜索出来的结果的下一个匹配项
 - ;p 定位到vimgrep搜索出来的结果的上一个匹配项
