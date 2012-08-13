@@ -24,7 +24,6 @@ set fileencoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5
 set encoding=utf-8
 set fileencodings=utf-8,chinese,latin-1
-language message zh_CN.utf-8
 set expandtab
 set tabstop=4 shiftwidth=4 softtabstop=4
 set autoindent
