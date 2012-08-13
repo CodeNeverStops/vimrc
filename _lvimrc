@@ -100,6 +100,7 @@ nmap <leader>tc :tabclose<cr>
 nmap <leader>tm :tabmove<cr>
 nmap <leader>to :tabonly<cr>
 nmap <leader>te :tabedit<space>
+nmap <leader>tt :call SwitchLastUsedTab()<cr>
 
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
@@ -223,4 +224,12 @@ function! <SID>BufcloseCloseIt()
    if buflisted(l:currentBufNum)
      execute("bdelete! ".l:currentBufNum)
    endif
+endfunction
+
+" Fast tab switching
+autocmd TabLeave * let g:LastUsedTabPage = tabpagenr()
+function! SwitchLastUsedTab()
+    if exists("g:LastUsedTabPage")
+        execute "tabnext " g:LastUsedTabPage
+    endif
 endfunction

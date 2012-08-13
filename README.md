@@ -21,6 +21,7 @@
 - ;tm 移动当前tab到最后
 - ;to 关闭所有tab，除了当前所在tab
 - ;te :tabedit 命令缩写
+- ;tt 两个tab之间切换
 - ctrl+j 移动当前行到下一行
 - ctrl+k 移动当前行到上一行
 
