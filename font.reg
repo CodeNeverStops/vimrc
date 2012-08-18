@@ -1,0 +1,7 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\FontLink\SystemLink]
+"Consolas"=hex(7):43,00,4f,00,4e,00,53,00,4f,00,4c,00,41,00,2e,00,54,00,54,00,\
+  46,00,2c,00,43,00,6f,00,6e,00,73,00,6f,00,6c,00,61,00,73,00,00,00,6d,00,73,\
+  00,79,00,68,00,2e,00,74,00,74,00,66,00,2c,00,ae,5f,6f,8f,c5,96,d1,9e,00,00,\
+  00,00
