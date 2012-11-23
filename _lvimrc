@@ -124,6 +124,11 @@ nmap <C-j> mz:m+<cr>`z
 nmap <C-k> mz:m-2<cr>`z
 vmap <C-j> :m'>+<cr>`<my`>mzgv`yo`z
 vmap <C-k> :m'<-2<cr>`>my`<mzgv`yo`z
+" Move cursor under insert mode using Ctrl+[hjkl], when use putty, alt key is not available.
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
 
 " Move cursor under insert mode using ALT+[jk] or Command+[jk] on mac
 imap <silent><M-h> <Left>
@@ -159,12 +164,16 @@ vnoremap <silent> <leader>r :call VisualSelection('replace')<CR>
 map <leader>n :cn<cr>
 map <leader>p :cp<cr>
 
+" mapping command-line mode
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Remove the Windows ^M - when the encodings gets messed up
 noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
+set wildmode=longest,list
 
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
