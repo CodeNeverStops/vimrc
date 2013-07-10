@@ -14,6 +14,8 @@ Bundle 'Shougo/neocomplcache.vim'
 Bundle 'Shougo/neosnippet.vim'
 Bundle 'honza/vim-snippets'
 Bundle 'tomtom/checksyntax_vim'
+Bundle 'bling/vim-airline'
+Bundle 'Lokaltog/vim-easymotion'
 
 " github vim-scripts repo
 Bundle 'mru.vim'
