@@ -1,6 +1,5 @@
 set nocompatible
 
-
 filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -19,7 +18,6 @@ Bundle 'honza/vim-snippets'
 Bundle 'mru.vim'
 
 filetype plugin indent on
-
 
 if has("autocmd")
 
