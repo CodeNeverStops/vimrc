@@ -1,6 +1,5 @@
 set nocompatible
 
-
 filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -14,12 +13,16 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'Shougo/neocomplcache.vim'
 Bundle 'Shougo/neosnippet.vim'
 Bundle 'honza/vim-snippets'
+Bundle 'tomtom/checksyntax_vim'
 
 " github vim-scripts repo
 Bundle 'mru.vim'
+Bundle 'SearchComplete'
+Bundle 'surround.vim'
+Bundle 'phpfolding.vim'
+Bundle 'PDV--phpDocumentor-for-Vim'
 
 filetype plugin indent on
-
 
 if has("autocmd")
 
@@ -135,6 +138,8 @@ nmap <leader>tm :tabmove<cr>
 nmap <leader>to :tabonly<cr>
 nmap <leader>te :tabedit<space>
 nmap <leader>tt :call SwitchLastUsedTab()<cr>
+
+nmap <leader>doc :call PhpDoc()<cr>
 
 autocmd BufReadPost *
      \ if line("'\"") > 0 && line("'\"") <= line("$") |
