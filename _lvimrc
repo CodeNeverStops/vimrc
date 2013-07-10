@@ -16,6 +16,7 @@ Bundle 'honza/vim-snippets'
 Bundle 'tomtom/checksyntax_vim'
 Bundle 'bling/vim-airline'
 Bundle 'Lokaltog/vim-easymotion'
+Bundle 'altercation/vim-colors-solarized'
 
 " github vim-scripts repo
 Bundle 'mru.vim'
@@ -59,7 +60,10 @@ else
 
 endif " has("autocmd")
 
+syntax enable
 colorscheme desert
+"set background=dark
+"colorscheme solarized
 let mapleader=";"
 let g:mapleader=";"
 
@@ -76,8 +80,9 @@ if has("gui_running")
     endif
 endif
 
-syntax enable
 syntax on
+" support for 256 colors
+set t_Co=256
 set nu
 set fileencoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5
@@ -283,3 +288,6 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
+
+" airline
+let g:airline_theme='simple'
