@@ -17,6 +17,8 @@ Bundle 'tomtom/checksyntax_vim'
 Bundle 'bling/vim-airline'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'uguu-org/vim-matrix-screensaver'
+Bundle 'shawncplus/phpcomplete.vim'
 
 " github vim-scripts repo
 Bundle 'mru.vim'
@@ -24,6 +26,12 @@ Bundle 'SearchComplete'
 Bundle 'surround.vim'
 Bundle 'phpfolding.vim'
 Bundle 'PDV--phpDocumentor-for-Vim'
+Bundle 'jsbeautify'
+" Bundle 'vim-multiple-cursor'
+Bundle 'FuzzyFinder'
+Bundle 'Gundo'
+Bundle 'JSON.vim'
+Bundle 'L9'
 
 filetype plugin indent on
 
@@ -84,6 +92,7 @@ syntax on
 " support for 256 colors
 set t_Co=256
 set nu
+set rnu " set relativenumber
 set fileencoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5
 set encoding=utf-8
@@ -130,6 +139,9 @@ set tw=500
 
 map j gj
 map k gk
+
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
 nmap <leader>wj <C-W>j
 nmap <leader>wk <C-W>k
