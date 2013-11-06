@@ -142,6 +142,9 @@ map k gk
 
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+inoremap jk <esc>
+inoremap <esc> <nop>
+
 
 nmap <leader>wj <C-W>j
 nmap <leader>wk <C-W>k
@@ -168,7 +171,7 @@ set viminfo^=%
 
 set laststatus=2
 
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
+"set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
 
 nmap <C-j> mz:m+<cr>`z
 nmap <C-k> mz:m-2<cr>`z
