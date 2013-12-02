@@ -147,6 +147,59 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 inoremap jk <esc>
 inoremap <esc> <nop>
+noremap <left> <nop>
+inoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+
+" auto insert pairs
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap < <><left>
+
+function! RemovePairs()
+    let s:line = getline(".")
+    let s:previous_char = s:line[col(".") - 1]
+
+    if index(["(", "[", "{",  "<"], s:previous_char) != -1
+        let l:original_pos = getpos(".")
+        execute "normal! %"
+        let l:new_pos = getpos(".")
+
+        if l:original_pos == l:new_pos
+            execute "normal! a\<BS>"
+            return
+        end
+
+        let l:line2 = getline(".")
+        if len(l:line2) == col(".")
+            execute "normal! v%xa"
+        else
+            execute "normal! v%xi"
+        end
+    else
+        execute "normal! a\<BS>"
+    end
+endfunction
+inoremap <BS> <ESC>:call RemovePairs()<CR>a
+
+function! RemoveNextDoubleChar(char)
+    let l:line = getline(".")
+    let l:next_char = l:line[col(".")]
+
+    if a:char == l:next_char
+        execute "normal! l"
+    else
+        execute "normal! i" . a:char . ""
+    end
+endfunction
+inoremap ) <ESC>:call RemoveNextDoubleChar(')')<CR>a
+inoremap ] <ESC>:call RemoveNextDoubleChar(']')<CR>a
+inoremap } <ESC>:call RemoveNextDoubleChar('}')<CR>a
+inoremap > <ESC>:call RemoveNextDoubleChar('>')<CR>a
 
 nmap <leader>wj <C-W>j
 nmap <leader>wk <C-W>k
@@ -166,9 +219,9 @@ nmap <leader>tt :call SwitchLastUsedTab()<cr>
 nmap <leader>doc :call PhpDoc()<cr>
 
 autocmd BufReadPost *
-     \ if line("'\"") > 0 && line("'\"") <= line("$") |
-     \   exe "normal! g`\"" |
-     \ endif
+            \ if line("'\"") > 0 && line("'\"") <= line("$") |
+            \   exe "normal! g`\"" |
+            \ endif
 set viminfo^=%
 
 set laststatus=2
@@ -189,16 +242,16 @@ imap <silent><M-j> <Down>
 imap <silent><M-k> <Up>
 imap <silent><M-l> <Right>
 if has("mac") || has("macunix")
-  imap <D-h> <M-h>
-  imap <D-j> <M-j>
-  imap <D-k> <M-k>
-  imap <D-l> <M-l>
+    imap <D-h> <M-h>
+    imap <D-j> <M-j>
+    imap <D-k> <M-k>
+    imap <D-l> <M-l>
 endif
 
 func! DeleteTrailingWS()
-  exe "normal mz"
-  %s/\s\+$//ge
-  exe "normal `z"
+    exe "normal mz"
+    %s/\s\+$//ge
+    exe "normal `z"
 endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
@@ -257,22 +310,22 @@ endfunction
 
 command! Bclose call <SID>BufcloseCloseIt()
 function! <SID>BufcloseCloseIt()
-   let l:currentBufNum = bufnr("%")
-   let l:alternateBufNum = bufnr("#")
+    let l:currentBufNum = bufnr("%")
+    let l:alternateBufNum = bufnr("#")
 
-   if buflisted(l:alternateBufNum)
-     buffer #
-   else
-     bnext
-   endif
+    if buflisted(l:alternateBufNum)
+        buffer #
+    else
+        bnext
+    endif
 
-   if bufnr("%") == l:currentBufNum
-     new
-   endif
+    if bufnr("%") == l:currentBufNum
+        new
+    endif
 
-   if buflisted(l:currentBufNum)
-     execute("bdelete! ".l:currentBufNum)
-   endif
+    if buflisted(l:currentBufNum)
+        execute("bdelete! ".l:currentBufNum)
+    endif
 endfunction
 
 autocmd TabLeave * let g:LastUsedTabPage = tabpagenr()
@@ -295,15 +348,15 @@ let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 
 " SuperTab like snippets behavior.
 imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: pumvisible() ? "\<C-n>" : "\<TAB>"
+            \ "\<Plug>(neosnippet_expand_or_jump)"
+            \: pumvisible() ? "\<C-n>" : "\<TAB>"
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: "\<TAB>"
+            \ "\<Plug>(neosnippet_expand_or_jump)"
+            \: "\<TAB>"
 
 " For snippet_complete marker.
 if has('conceal')
-  set conceallevel=2 concealcursor=i
+    set conceallevel=2 concealcursor=i
 endif
 
 " airline
