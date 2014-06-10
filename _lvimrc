@@ -1,11 +1,11 @@
 set nocompatible
 
 filetype off
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 
 " let Vundle manage Vundle"
-Bundle 'gmarik/vundle'
+Bundle 'gmarik/Vundle'
 
 " github repo
 Bundle 'scrooloose/nerdcommenter'
@@ -21,7 +21,7 @@ Bundle 'uguu-org/vim-matrix-screensaver'
 Bundle 'shawncplus/phpcomplete.vim'
 
 " github vim-scripts repo
-Bundle 'mru.vim'
+"Bundle 'mru.vim'
 Bundle 'SearchComplete'
 Bundle 'surround.vim'
 Bundle 'phpfolding.vim'
@@ -85,6 +85,10 @@ if has("gui_running")
     set guitablabel=%M\ %t
     if has("win32")
         set guifont=Consolas:h10
+        set langmenu=zh_CN.UTF-8
+        language message zh_CN.UTF-8
+    elseif has("unix")
+        set guifont=YaHei\ Consolas\ Hybrid\ 14
         set langmenu=zh_CN.UTF-8
         language message zh_CN.UTF-8
     endif
