@@ -5,34 +5,36 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle"
-Bundle 'gmarik/Vundle.vim'
+Plugin 'gmarik/Vundle.vim'
 
 " github repo
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/syntastic'
 " support for snippet
-Bundle 'Shougo/neocomplcache.vim'
-Bundle 'Shougo/neosnippet.vim'
-Bundle 'honza/vim-snippets'
-"Bundle 'tomtom/checksyntax_vim'
-Bundle 'bling/vim-airline'
-"Bundle 'Lokaltog/vim-easymotion'
-"Bundle 'altercation/vim-colors-solarized'
-"Bundle 'uguu-org/vim-matrix-screensaver'
-Bundle 'shawncplus/phpcomplete.vim'
+Plugin 'Shougo/neocomplcache.vim'
+Plugin 'Shougo/neosnippet.vim'
+Plugin 'honza/vim-snippets'
+"Plugin 'tomtom/checksyntax_vim'
+Plugin 'bling/vim-airline'
+"Plugin 'Lokaltog/vim-easymotion'
+"Plugin 'altercation/vim-colors-solarized'
+"Plugin 'uguu-org/vim-matrix-screensaver'
+Plugin 'shawncplus/phpcomplete.vim'
+Plugin 'Shougo/unite.vim'
 
 " github vim-scripts repo
-"Bundle 'mru.vim'
-Bundle 'SearchComplete'
-Bundle 'surround.vim'
-"Bundle 'phpfolding.vim'
-Bundle 'PDV--phpDocumentor-for-Vim'
-Bundle 'jsbeautify'
-" Bundle 'vim-multiple-cursor'
-Bundle 'FuzzyFinder'
-Bundle 'Gundo'
-Bundle 'JSON.vim'
-Bundle 'L9'
+"Plugin 'mru.vim'
+Plugin 'L9'
+Plugin 'SearchComplete'
+Plugin 'surround.vim'
+"Plugin 'phpfolding.vim'
+Plugin 'PDV--phpDocumentor-for-Vim'
+Plugin 'jsbeautify'
+" Plugin 'vim-multiple-cursor'
+"Plugin 'FuzzyFinder'
+Plugin 'Gundo'
+Plugin 'JSON.vim'
+call vundle#end()
 
 filetype plugin indent on
 
@@ -85,7 +87,7 @@ if has("gui_running")
     set t_Co=256
     set guitablabel=%M\ %t
     if has("win32")
-        set guifont=Consolas:h10
+        set guifont=Consolas:h14
         set langmenu=zh_CN.UTF-8
         language message zh_CN.UTF-8
     elseif has("unix")
