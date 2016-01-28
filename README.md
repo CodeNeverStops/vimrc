@@ -1,12 +1,15 @@
+## 预览
+![截图](https://cloud.githubusercontent.com/assets/322849/12638856/31df50ac-c5db-11e5-832c-57d4980811f4.png)
+
 ## 此配置适用于vim7.4
 
 ## 特性
 - 完善的Golang开发环境，集成了代码高亮，自动完成等特性
-- 按键集中在主键盘区域，摒弃恼人但需频繁使用的方向键
-- 减少常用命令的输入字符量
-- 使用vundle管理插件，第一次使用，需要在vim中输入':PluginInstall'（不包含单引号）
-- 关闭了gvim的菜单栏和工具栏
+- 集成Sublime Text molokai主题
+- 使用Vundle.vim管理插件
 - windows下使用Consolas和微软雅黑字体，需要导入font.reg到系统注册表中
+- 按键集中在主键盘区域，摒弃恼人但需频繁使用的方向键
+- 关闭了gvim的菜单栏和工具栏
 
 ## 使用方法
 - 在系统的vimrc中加载本配置，例如: source $VIMRUNTIME/\_lvimrc
