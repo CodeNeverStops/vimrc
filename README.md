@@ -51,16 +51,16 @@
 - ;pp 关闭/打开复制模式
 
 #### Go源文件按键绑定
-au FileType go nmap <leader>r <Plug>(go-run)
-au FileType go nmap <leader>b <Plug>(go-build)
-au FileType go nmap <leader>t <Plug>(go-test)
-au FileType go nmap <leader>c <Plug>(go-coverage)
-au FileType go nmap <Leader>ds <Plug>(go-def-split)
-au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
-au FileType go nmap <Leader>dt <Plug>(go-def-tab)
-au FileType go nmap <Leader>dc <Plug>(go-doc)
-au FileType go nmap <Leader>dov <Plug>(go-doc-vertical)
-au FileType go nmap <Leader>db <Plug>(go-doc-browser)
-au FileType go nmap <Leader>im <Plug>(go-implements)
-au FileType go nmap <Leader>in <Plug>(go-info)
+- au FileType go nmap <leader>r <Plug>(go-run)
+- au FileType go nmap <leader>b <Plug>(go-build)
+- au FileType go nmap <leader>t <Plug>(go-test)
+- au FileType go nmap <leader>c <Plug>(go-coverage)
+- au FileType go nmap <Leader>ds <Plug>(go-def-split)
+- au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+- au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+- au FileType go nmap <Leader>dc <Plug>(go-doc)
+- au FileType go nmap <Leader>dov <Plug>(go-doc-vertical)
+- au FileType go nmap <Leader>db <Plug>(go-doc-browser)
+- au FileType go nmap <Leader>im <Plug>(go-implements)
+- au FileType go nmap <Leader>in <Plug>(go-info)
 
