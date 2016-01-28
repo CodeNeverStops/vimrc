@@ -8,9 +8,10 @@
 - windows下使用Consolas和微软雅黑字体，需要导入font.reg到系统注册表中
 
 ## 使用方法
-*在系统的vimrc中加载本配置，例如: source $VIMRUNTIME/\_lvimrc
-*安装Vundle.vim插件来管理依赖的插件，安装完后，运行:PluginInstall来自动安装依赖的插件
-*YouCompleteMe插件需要手动安装
+- 在系统的vimrc中加载本配置，例如: source $VIMRUNTIME/\_lvimrc
+- 安装Vundle.vim插件来管理依赖的插件，安装完后，运行:PluginInstall来自动安装依赖的插件
+- YouCompleteMe插件需要手动安装
+- 复制go/bin目录下的预编译工具到$GOPATH/bin目录下
 
 ## 按键绑定
 #### 普通模式
