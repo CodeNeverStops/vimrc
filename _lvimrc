@@ -11,9 +11,9 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 " support for snippet
-Plugin 'Shougo/neocomplcache.vim'
-Plugin 'Shougo/neosnippet.vim'
-Plugin 'honza/vim-snippets'
+"Plugin 'Shougo/neocomplcache.vim'
+"Plugin 'Shougo/neosnippet.vim'
+"Plugin 'honza/vim-snippets'
 "Plugin 'tomtom/checksyntax_vim'
 Plugin 'bling/vim-airline'
 "Plugin 'Lokaltog/vim-easymotion'
@@ -34,6 +34,9 @@ Plugin 'jsbeautify'
 "Plugin 'FuzzyFinder'
 Plugin 'Gundo'
 Plugin 'JSON.vim'
+Plugin 'fatih/vim-go'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'SirVer/ultisnips'
 call vundle#end()
 
 filetype plugin indent on
@@ -100,8 +103,8 @@ endif
 syntax on
 " Basic Settings ------------------------------- {{{
 set t_Co=256 " support for 256 colors
-set nu
-set rnu " set relativenumber
+"set nu
+"set rnu " set relativenumber
 set fileencoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5
 set encoding=utf-8
@@ -154,18 +157,18 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 inoremap jk <esc>
 inoremap <esc> <nop>
-noremap <left> <nop>
-inoremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
+"noremap <left> <nop>
+"inoremap <right> <nop>
+"inoremap <up> <nop>
+"inoremap <down> <nop>
 
 " auto insert pairs
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap { {}<left>
-inoremap " ""<left>
-inoremap ' ''<left>
-inoremap < <><left>
+"inoremap ( ()<left>
+"inoremap [ []<left>
+"inoremap { {}<left>
+"inoremap " ""<left>
+"inoremap ' ''<left>
+"inoremap < <><left>
 
 nmap <leader>wj <C-W>j
 nmap <leader>wk <C-W>k
@@ -182,7 +185,6 @@ nmap <leader>to :tabonly<cr>
 nmap <leader>te :tabedit<space>
 nmap <leader>tt :call SwitchLastUsedTab()<cr>
 
-nmap <leader>doc :call PhpDoc()<cr>
 
 autocmd BufReadPost *
             \ if line("'\"") > 0 && line("'\"") <= line("$") |
@@ -302,10 +304,10 @@ function! SwitchLastUsedTab()
 endfunction
 
 " Enable snipMate compatibility feature.
-let g:neosnippet#enable_snipmate_compatibility = 1
+"let g:neosnippet#enable_snipmate_compatibility = 1
 
 " " Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+"let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 
 " Plugin key-mappings.
 "imap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -313,12 +315,12 @@ let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 "xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 " SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-            \ "\<Plug>(neosnippet_expand_or_jump)"
-            \: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-            \ "\<Plug>(neosnippet_expand_or_jump)"
-            \: "\<TAB>"
+"imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+            "\ "\<Plug>(neosnippet_expand_or_jump)"
+            "\: pumvisible() ? "\<C-n>" : "\<TAB>"
+"smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+            "\ "\<Plug>(neosnippet_expand_or_jump)"
+            "\: "\<TAB>"
 
 " For snippet_complete marker.
 if has('conceal')
@@ -327,3 +329,43 @@ endif
 
 " airline
 let g:airline_theme='simple'
+
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+au FileType go nmap <Leader>dc <Plug>(go-doc)
+au FileType go nmap <Leader>dov <Plug>(go-doc-vertical)
+au FileType go nmap <Leader>db <Plug>(go-doc-browser)
+au FileType go nmap <Leader>im <Plug>(go-implements)
+au FileType go nmap <Leader>in <Plug>(go-info)
+"au FileType go nmap <Leader>gre <Plug>(go-rename)
+
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
+let g:go_fmt_command = "goimports"
+
+" YCM settings
+let g:ycm_key_list_select_completion = ['', '']
+let g:ycm_key_list_previous_completion = ['']
+let g:ycm_key_invoke_completion = '<C-Space>'
+
+" UltiSnips settings
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+" copy https://github.com/fatih/molokai/blob/master/colors/molokai.vim to ~/.vim/colors/
+au BufRead,BufNewFile *.go set filetype=go
+colorscheme molokai
+let g:molokai_original = 1
+let g:rehash256 = 1
+
+au filetype php nmap <leader>doc :call PhpDoc()<cr>
