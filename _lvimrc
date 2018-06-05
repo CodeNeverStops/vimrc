@@ -8,6 +8,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " github repo
+Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 " support for snippet
@@ -16,11 +17,13 @@ Plugin 'scrooloose/syntastic'
 "Plugin 'honza/vim-snippets'
 "Plugin 'tomtom/checksyntax_vim'
 Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 "Plugin 'Lokaltog/vim-easymotion'
 "Plugin 'altercation/vim-colors-solarized'
 "Plugin 'uguu-org/vim-matrix-screensaver'
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'Shougo/unite.vim'
+Plugin 'fholgado/minibufexpl.vim'
 
 " github vim-scripts repo
 "Plugin 'mru.vim'
